@@ -1,1 +1,1 @@
-thnks
+thanks
