@@ -1,2 +1,2 @@
 #!/bin/bash
-printenv "%0.4f\n"$NUM
+printenv "%0.4f\n" $NUM
