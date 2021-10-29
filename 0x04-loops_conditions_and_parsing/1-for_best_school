@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-# displays Holberton School 10 times
-
-for _ in $(seq 1 10);
+#for loop displaying Holberton School 10x
+for ((iter = 0; iter < 10; iter++))
 do
-	echo "Holberton School"
+	echo "Best School"
 done
