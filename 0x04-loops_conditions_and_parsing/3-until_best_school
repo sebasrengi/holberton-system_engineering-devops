@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
-# displays Holberton School 10 times
+#until loop
 
-COUNTER=0
-until [ "$COUNTER" -eq 10 ]; do
-	echo "Holberton School"
-	let COUNTER=COUNTER+1
+i=0
+until [ $i -gt 9 ]
+do
+	echo "Best School"
+	((i++))
 done
