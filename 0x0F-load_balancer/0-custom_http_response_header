@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#double server
+
+new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=DQEfgzOtA_U permanent;"
+
+newlines="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
+
+newline2="server_name _;\n\tadd_header X-Served-By $HOSTNAME;"
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World" | sudo tee /var/www/html/index.html
+sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
+sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
+
+
+sed -i "s|server_name\ _;|$newline2|" /etc/nginx/sites-available/default
+
+service nginx restart
+service nginx reload
