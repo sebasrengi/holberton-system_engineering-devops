@@ -2,7 +2,7 @@
 # shellcheck disable=SC2086
 # display information about subdomains
 
-display_info ()
+function display_info ()
 {
     domain="$1"
     subdomain="$2"
@@ -13,5 +13,6 @@ for subdomain in "www" "lb-01" "web-01" "web-02"
 do
     if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
     then
-	display_info "$1" "$subdomain"
+        display_info "$1" "$subdomain"
     fi
+done
