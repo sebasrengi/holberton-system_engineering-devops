@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Nginx as nginx
+
+# Release port 8080
+sudo pkill -9 apache2
+
+conf="/etc/nginx/nginx.conf";
+
+# Set owner permissions
+sudo chmod 644 $conf
+
+# User nginx enable
+new_user="user nginx;";
+sed -i "s|#user www-data;|$new_user|" $conf
+
+# Set port 8080 by default
+path_ports="/etc/nginx/sites-available/default";
+sed -i "s|80 default_server|8080 default_server|" $path_ports
+
+# Execute nginx as nginx user
+sudo -u nginx service nginx restart
