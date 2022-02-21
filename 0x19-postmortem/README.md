@@ -24,7 +24,7 @@
 
 ### Root Cause and Resolution:
 
-TThe main cause of this outage was typos and syntax errors in the php file **/var/www/html/wp-settings.php** where `/var/www/html/wp-includes/class was required -wp-locale .phpp` file. The **.phpp** extension was a typo, meant to be **.php**. Since `/var/www/html/wp-includes/class-wp-locale.phpp` did not exist and was required, a fatal error was generated that prevented the content from being served. Since this code was deployed to all servers, this error caused a 100% outage. Developed and deployed a puppet manifest to fix the typo on all servers, restoring service within 12 minutes of outage.
+The main cause of this outage was typos and syntax errors in the php file **/var/www/html/wp-settings.php** where `/var/www/html/wp-includes/class was required -wp-locale .phpp` file. The **.phpp** extension was a typo, meant to be **.php**. Since `/var/www/html/wp-includes/class-wp-locale.phpp` did not exist and was required, a fatal error was generated that prevented the content from being served. Since this code was deployed to all servers, this error caused a 100% outage. Developed and deployed a puppet manifest to fix the typo on all servers, restoring service within 13 minutes of outage.
 
 ### Corrective and preventative measures:
 
