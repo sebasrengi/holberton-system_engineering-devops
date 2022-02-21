@@ -1,6 +1,6 @@
 # My first postmortem
 
-### resumen:
+### Summary:
 
 **on December 15, 2021 between 12pm and 5pm** between 12pm and 5pm the files sent were not sent correctly causing a status error **500(internal server error)**, what cause? there were several problems, but many were easy to solve, syntax errors in the code, indentation errors and a file had a small error in the extension instead of **php** the file was written as **pphp** it is thought it was a typo
 
