@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install nginx
 
-new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=9r1PPedJzng permanent;"
+new_conf="server_name _;\n\rewrite ^/redirect_me/$ https://www.youtube.com/watch?v=9r1PPedJzng permanent;"
 
 sudo apt update
 sudo apt install -y nginx
