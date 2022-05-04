@@ -13,4 +13,4 @@ frontend http
 balance roundrobin
 	server 3457-web-01 34.139.147.144 check
 	server 3457-web-02 54.172.174.193 check" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
-	service haproxy restart
+	service haproxy start
