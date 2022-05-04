@@ -1,11 +1,15 @@
 #!/usr/bin/env bash
-# Install nginx
+#double server
 
-new_conf="server_name _;\n\rewrite ^/redirect_me/$ https://www.youtube.com/watch?v=9r1PPedJzng permanent;"
+new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=9r1PPedJzng permanent;"
 
-sudo apt update
-sudo apt install -y nginx
-sudo ufw allow 'Nginx HTTP'
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
 echo "Hello World" | sudo tee /var/www/html/index.html
-sudo sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
-sudo service nginx restart
+sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
+sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
+
+service nginx restart
+service nginx reload
