@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #double server
 
-new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=DQEfgzOtA_U permanent;"
+new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=9r1PPedJzng permanent;"
 
 newlines="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
 
