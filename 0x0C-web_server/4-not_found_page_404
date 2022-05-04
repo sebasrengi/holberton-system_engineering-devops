@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
-# Install nginx
+#double server
 
-sudo apt-get -y update
-sudo apt-get -y upgrade
-sudo apt-get -y install nginx
-sudo service nginx start
+new_conf="server_name _;\n\trewrite ^/redirect_me/$ https://www.youtube.com/watch?v=9r1PPedJzng permanent;"
+
+newlines="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
+
+apt-get -y update
+apt-get -y upgrade
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World" | sudo tee /var/www/html/index.html
+sed -i "s|server_name\ _;|$new_conf|" /etc/nginx/sites-available/default
 echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-newlines="\\\error_page 404 /404.html;\n\location = /404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
 sudo sed -i "27i $newlines" /etc/nginx/sites-available/default
-sudo service nginx restart
-sudo service nginx reload
+
+service nginx restart
+service nginx reload
