@@ -8,11 +8,11 @@ from sys import argv
 import requests
 
 if __name__ == '__main__':
+
     url = "https://jsonplaceholder.typicode.com"
-    user_id = int(argv[1])
-    users = requests.get(url + "/users/{}".
+    user = requests.get(url + "/users/{}".
                         format(argv[1]), verify=False).json()
-    todos = requests.get(url + "/todos?userId={}".
+    todo = requests.get(url + "/todos?userId={}".
                         format(argv[1]), verify=False).json()
     
     all_user = requests.get(
