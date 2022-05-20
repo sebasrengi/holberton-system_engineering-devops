@@ -14,10 +14,6 @@ if __name__ == '__main__':
                         format(argv[1]), verify=False).json()
     todo = requests.get(url + "/todos?userId={}".
                         format(argv[1]), verify=False).json()
-    
-    all_user = requests.get(
-        url + /todos?userId={}".
-        format(user_id)).json()
     lists = []
 
     for task in todos:
